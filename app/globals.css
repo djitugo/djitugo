@@ -60,9 +60,9 @@
   .font-sans { font-family: var(--font-sans); }
   .font-mono { font-family: var(--font-mono); }
 
-  .text-mega { font-size: var(--text-mega); line-height: 1.05; letter-spacing: -0.05em; padding-bottom: 0.3em; }
-  .text-display { font-size: var(--text-display); line-height: 1.05; letter-spacing: -0.04em; padding-bottom: 0.25em; }
-  .text-headline { font-size: var(--text-headline); line-height: 1.1; letter-spacing: -0.035em; padding-bottom: 0.2em; }
+  .text-mega     { font-size: var(--text-mega);     line-height: 0.95; letter-spacing: -0.05em;  padding-bottom: 0.28em; margin-bottom: -0.22em; }
+  .text-display  { font-size: var(--text-display);  line-height: 0.95; letter-spacing: -0.04em;  padding-bottom: 0.24em; margin-bottom: -0.2em; }
+  .text-headline { font-size: var(--text-headline); line-height: 1.0;  letter-spacing: -0.035em; padding-bottom: 0.2em;  margin-bottom: -0.16em; }
 
   .container-x {
     width: 100%;

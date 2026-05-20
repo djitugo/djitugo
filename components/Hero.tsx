@@ -146,10 +146,8 @@ export default function Hero() {
 
 function Line({ children }: { children: React.ReactNode }) {
   return (
-    <div className="hero-line block overflow-hidden text-mega font-display py-[0.05em]">
-      <span className="inline-block will-change-transform pb-[0.18em] -mb-[0.18em]">
-        {children}
-      </span>
+    <div className="hero-line block overflow-hidden text-mega font-display">
+      <span className="inline-block will-change-transform">{children}</span>
     </div>
   );
 }
