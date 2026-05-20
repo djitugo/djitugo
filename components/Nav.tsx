@@ -35,11 +35,10 @@ export default function Nav() {
       <div className="container-x flex items-center justify-between py-5">
         <Link
           href="/"
-          className="flex items-center gap-2 group"
+          className="flex items-center group"
           aria-label="Djitugo home"
         >
           <Logo />
-          <span className="font-display text-2xl tracking-tight">djitugo</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-9">
