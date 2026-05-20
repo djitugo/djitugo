@@ -4,120 +4,10 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import TickerCTA from "@/components/TickerCTA";
-
-type Work = {
-  client: string;
-  industry: string;
-  year: string;
-  services: string[];
-  result: string;
-  feature?: boolean;
-  size: "tall" | "wide" | "square";
-  hue: number;
-};
-
-const works: Work[] = [
-  {
-    client: "The Mesare Resort",
-    industry: "Hospitality",
-    year: "2025",
-    services: ["Web", "Social", "SEO"],
-    result: "Bookings doubled in 2 quarters after a brand refresh + always-on social.",
-    feature: true,
-    size: "wide",
-    hue: 12,
-  },
-  {
-    client: "JobStreet Express",
-    industry: "Recruitment",
-    year: "2024",
-    services: ["Campaign", "Ads"],
-    result: "Multi-channel launch campaign across Meta + Google with 4.2× ROAS.",
-    size: "tall",
-    hue: 0,
-  },
-  {
-    client: "Chandra Bali Villas",
-    industry: "Luxury Villas",
-    year: "2025",
-    services: ["Branding", "Photography"],
-    result: "Identity system + photo library that scaled to OTAs and direct booking.",
-    size: "square",
-    hue: 30,
-  },
-  {
-    client: "Salty Skin",
-    industry: "Skincare D2C",
-    year: "2024",
-    services: ["Social", "Reels"],
-    result: "Reels engine producing 12 assets/month, 5× higher save rate.",
-    size: "square",
-    hue: 6,
-  },
-  {
-    client: "Bali Family Dental",
-    industry: "Healthcare",
-    year: "2024",
-    services: ["Web", "Ads"],
-    result: "New site + lead funnel cut cost per appointment by 38%.",
-    size: "wide",
-    hue: 20,
-  },
-  {
-    client: "Love Scooter Bali",
-    industry: "Mobility",
-    year: "2023",
-    services: ["Brand", "Web", "Ads"],
-    result: "Full rebrand and booking-first site, ranked top-3 for category search.",
-    size: "tall",
-    hue: 14,
-  },
-  {
-    client: "I Am Fit Bali",
-    industry: "Fitness",
-    year: "2024",
-    services: ["Branding", "Social"],
-    result: "Studio identity + community-first social grew membership 2.7×.",
-    size: "square",
-    hue: 22,
-  },
-  {
-    client: "BB Resort Nusa Penida",
-    industry: "Hospitality",
-    year: "2023",
-    services: ["Web", "Photography"],
-    result: "Site & gallery showcasing the island — direct bookings up 60%.",
-    size: "wide",
-    hue: 8,
-  },
-  {
-    client: "Ninobu",
-    industry: "F&B",
-    year: "2024",
-    services: ["Brand", "Social"],
-    result: "Brand world + content engine for a new dining concept.",
-    size: "square",
-    hue: 16,
-  },
-  {
-    client: "Ruang Bahasa",
-    industry: "Education",
-    year: "2024",
-    services: ["Web", "Social"],
-    result: "Course-led site + Reels strategy that scaled enrollments 3×.",
-    size: "tall",
-    hue: 4,
-  },
-];
+import { works, workSizeSpan } from "@/lib/works";
 
 const filters = ["All", "Brand", "Web", "Social", "Ads", "Photo"] as const;
 type Filter = (typeof filters)[number];
-
-const sizeSpan: Record<Work["size"], string> = {
-  tall: "md:col-span-4 md:row-span-2 aspect-[3/4]",
-  wide: "md:col-span-8 aspect-[16/9]",
-  square: "md:col-span-4 aspect-square",
-};
 
 export default function WorksPage() {
   const [active, setActive] = useState<Filter>("All");
@@ -150,7 +40,10 @@ export default function WorksPage() {
       />
 
       {featured && (
-        <section className="border-b hairline bg-[color:var(--color-paper)]">
+        <Link
+          href={`/works/${featured.slug}`}
+          className="block border-b hairline bg-[color:var(--color-paper)] group"
+        >
           <div className="container-x py-16 md:py-24 grid grid-cols-12 gap-8 items-center">
             <div className="col-span-12 lg:col-span-7">
               <FeatureArt hue={featured.hue} />
@@ -159,7 +52,9 @@ export default function WorksPage() {
               <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[color:var(--color-gray-3)]">
                 Featured · {featured.year}
               </p>
-              <h2 className="text-headline font-display mt-6">{featured.client}</h2>
+              <h2 className="text-headline font-display mt-6 transition-transform duration-500 group-hover:translate-x-1">
+                {featured.client}
+              </h2>
               <p className="mt-6 text-[15.5px] leading-relaxed text-[color:var(--color-gray-4)] max-w-md">
                 {featured.result}
               </p>
@@ -173,15 +68,12 @@ export default function WorksPage() {
                   </span>
                 ))}
               </div>
-              <Link
-                href="/contact"
-                className="mt-10 inline-flex items-center gap-3 text-sm underline-grow"
-              >
-                Want results like this? Talk to us →
-              </Link>
+              <span className="mt-10 inline-flex items-center gap-3 text-sm underline-grow">
+                Read the full case
+              </span>
             </div>
           </div>
-        </section>
+        </Link>
       )}
 
       <section className="py-12 md:py-16 bg-[color:var(--color-paper)] border-b hairline">
@@ -208,9 +100,10 @@ export default function WorksPage() {
       <section className="py-16 md:py-24 bg-[color:var(--color-paper)]">
         <div className="container-x grid grid-cols-12 gap-3 md:gap-4 auto-rows-[minmax(220px,auto)]">
           {visible.map((w) => (
-            <article
-              key={w.client}
-              className={`col-span-12 ${sizeSpan[w.size]} group relative overflow-hidden rounded-2xl bg-[color:var(--color-ink)] text-[color:var(--color-paper)] grain`}
+            <Link
+              key={w.slug}
+              href={`/works/${w.slug}`}
+              className={`col-span-12 ${workSizeSpan(w.size)} group relative overflow-hidden rounded-2xl bg-[color:var(--color-ink)] text-[color:var(--color-paper)] grain block`}
             >
               <WorkArt hue={w.hue} />
               <div className="relative z-10 h-full p-6 md:p-8 flex flex-col justify-between">
@@ -243,7 +136,7 @@ export default function WorksPage() {
               >
                 →
               </span>
-            </article>
+            </Link>
           ))}
           {visible.length === 0 && (
             <p className="col-span-12 text-center text-[color:var(--color-gray-3)] py-16 font-mono text-sm uppercase tracking-[0.22em]">

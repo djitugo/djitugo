@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 
 type Service = {
   num: string;
+  slug: string;
   title: string;
   blurb: string;
   bullets: string[];
@@ -16,6 +18,7 @@ type Service = {
 const services: Service[] = [
   {
     num: "01",
+    slug: "all-in-one",
     title: "All-in-One\nDigital Marketing",
     blurb:
       "Strategy, execution and reporting under one roof. We orchestrate every channel toward one metric: business growth.",
@@ -26,6 +29,7 @@ const services: Service[] = [
   },
   {
     num: "02",
+    slug: "social",
     title: "Social Media\nManagement",
     blurb:
       "Instagram, TikTok &amp; Facebook content that builds community and converts followers into customers.",
@@ -35,6 +39,7 @@ const services: Service[] = [
   },
   {
     num: "03",
+    slug: "ads",
     title: "Ads\nManagement",
     blurb:
       "Performance-led campaigns across Meta, Google, TikTok, LinkedIn &amp; YouTube — optimized weekly.",
@@ -44,6 +49,7 @@ const services: Service[] = [
   },
   {
     num: "04",
+    slug: "web",
     title: "Web\nDevelopment",
     blurb:
       "Conversion-first websites engineered with modern stacks, AI chat &amp; automations baked in.",
@@ -53,6 +59,7 @@ const services: Service[] = [
   },
   {
     num: "05",
+    slug: "branding",
     title: "Branding &amp;\nDesign",
     blurb:
       "Identity systems, art direction and graphic craft — built for a digital-first world.",
@@ -62,6 +69,7 @@ const services: Service[] = [
   },
   {
     num: "06",
+    slug: "photography",
     title: "Commercial\nPhotography",
     blurb:
       "Product, lifestyle &amp; campaign imagery — shot in Bali by our in-house @djitugopictures team.",
@@ -131,10 +139,11 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ num, title, blurb, bullets, span, tone, decoration }: Service) {
+function ServiceCard({ num, slug, title, blurb, bullets, span, tone, decoration }: Service) {
   const dark = tone === "dark";
   return (
-    <article
+    <Link
+      href={`/services/${slug}`}
       className={`svc-card ${span} col-span-12 group relative overflow-hidden rounded-2xl p-7 md:p-10 flex flex-col justify-between ${
         dark
           ? "bg-[color:var(--color-ink)] text-[color:var(--color-paper)] grain"
@@ -196,7 +205,7 @@ function ServiceCard({ num, title, blurb, bullets, span, tone, decoration }: Ser
             : "bg-[radial-gradient(circle_at_var(--mx,80%)_var(--my,20%),rgba(0,0,0,0.05),transparent_45%)]"
         }`}
       />
-    </article>
+    </Link>
   );
 }
 

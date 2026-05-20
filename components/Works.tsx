@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 
 type Work = {
+  slug: string;
   client: string;
   category: string;
   services: string[];
@@ -15,6 +16,7 @@ type Work = {
 
 const works: Work[] = [
   {
+    slug: "mesare-resort",
     client: "The Mesare Resort",
     category: "Hospitality · Bali",
     services: ["Web", "SMM", "SEO"],
@@ -23,6 +25,7 @@ const works: Work[] = [
     art: <ArtA />,
   },
   {
+    slug: "jobstreet-express",
     client: "JobStreet Express",
     category: "Recruitment platform",
     services: ["Campaign", "Ads"],
@@ -31,6 +34,7 @@ const works: Work[] = [
     art: <ArtB />,
   },
   {
+    slug: "chandra-bali-villas",
     client: "Chandra Bali Villas",
     category: "Luxury villas",
     services: ["Brand", "Photo"],
@@ -39,6 +43,7 @@ const works: Work[] = [
     art: <ArtC />,
   },
   {
+    slug: "salty-skin",
     client: "Salty Skin",
     category: "Skincare D2C",
     services: ["SMM", "Reels"],
@@ -47,6 +52,7 @@ const works: Work[] = [
     art: <ArtD />,
   },
   {
+    slug: "bali-family-dental",
     client: "Bali Family Dental",
     category: "Healthcare",
     services: ["Web", "Ads"],
@@ -55,6 +61,7 @@ const works: Work[] = [
     art: <ArtE />,
   },
   {
+    slug: "love-scooter-bali",
     client: "Love Scooter Bali",
     category: "Mobility · rental",
     services: ["Brand", "Web", "Ads"],
@@ -125,9 +132,10 @@ export default function Works() {
 
         <div className="grid grid-cols-12 gap-3 md:gap-4 auto-rows-[minmax(220px,auto)]">
           {works.map((w) => (
-            <article
-              key={w.client}
-              className={`work-card col-span-12 ${span[w.size]} group relative overflow-hidden rounded-2xl bg-[color:var(--color-ink)] text-[color:var(--color-paper)] grain`}
+            <Link
+              key={w.slug}
+              href={`/works/${w.slug}`}
+              className={`work-card col-span-12 ${span[w.size]} group relative overflow-hidden rounded-2xl bg-[color:var(--color-ink)] text-[color:var(--color-paper)] grain block`}
             >
               <div className="absolute inset-0">{w.art}</div>
 
@@ -160,7 +168,7 @@ export default function Works() {
               >
                 →
               </span>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

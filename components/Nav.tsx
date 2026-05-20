@@ -7,6 +7,7 @@ import { services } from "@/lib/services";
 type NavItem = { label: string; href: string; children?: typeof services };
 
 const links: NavItem[] = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/services", children: services },
   { label: "Works", href: "/works" },
   { label: "Process", href: "/process" },
