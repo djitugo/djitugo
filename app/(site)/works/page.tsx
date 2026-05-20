@@ -219,7 +219,7 @@ export default function WorksPage() {
                   <span className="opacity-60">{w.year}</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-[clamp(1.5rem,2.2vw,2.5rem)] tracking-tight leading-[1] transition-transform duration-500 group-hover:-translate-y-1">
+                  <h3 className="font-display text-[clamp(1.5rem,2.2vw,2.5rem)] tracking-tight leading-[1.1] pb-[0.1em] transition-transform duration-500 group-hover:-translate-y-1">
                     {w.client}
                   </h3>
                   <p className="mt-3 text-[13px] leading-relaxed opacity-75 max-w-sm">

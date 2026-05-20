@@ -138,7 +138,7 @@ export default function Works() {
                 </div>
 
                 <div>
-                  <h3 className="font-display text-[clamp(1.5rem,2.3vw,2.5rem)] tracking-tight leading-[1] transition-transform duration-500 group-hover:-translate-y-1">
+                  <h3 className="font-display text-[clamp(1.5rem,2.3vw,2.5rem)] tracking-tight leading-[1.1] pb-[0.1em] transition-transform duration-500 group-hover:-translate-y-1">
                     {w.client}
                   </h3>
                   <div className="mt-4 flex flex-wrap gap-2">

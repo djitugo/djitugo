@@ -63,8 +63,8 @@ export default function HomeLoader() {
               className="rounded-[14px]"
             />
             <span
-              className="font-display tracking-[-0.04em] leading-[0.9] text-[clamp(3rem,9vw,7.5rem)]"
-              style={{ clipPath: `inset(0 ${100 - progress}% 0 0)` }}
+              className="font-display tracking-[-0.04em] leading-[1.1] text-[clamp(3rem,9vw,7.5rem)] inline-block pb-[0.18em]"
+              style={{ clipPath: `inset(0 ${100 - progress}% -0.2em 0)` }}
             >
               djitugo
             </span>

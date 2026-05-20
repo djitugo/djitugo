@@ -139,7 +139,7 @@ export default function ProcessPage() {
                   {s.n} / 04
                 </div>
                 <div className="col-span-12 md:col-span-5">
-                  <h2 className="font-display text-5xl md:text-7xl tracking-tight leading-[0.95]">
+                  <h2 className="font-display text-5xl md:text-7xl tracking-tight leading-[1.05] pb-[0.08em]">
                     {s.title}
                   </h2>
                   <p className="mt-4 italic font-display text-xl md:text-2xl opacity-70 max-w-md">

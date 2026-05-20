@@ -158,7 +158,7 @@ function ServiceCard({ num, title, blurb, bullets, span, tone, decoration }: Ser
       </div>
 
       <div>
-        <h3 className="text-[clamp(1.75rem,3.4vw,3.25rem)] font-display whitespace-pre-line leading-[0.95] tracking-tight">
+        <h3 className="text-[clamp(1.75rem,3.4vw,3.25rem)] font-display whitespace-pre-line leading-[1.08] tracking-tight pb-[0.1em]">
           {title}
         </h3>
         <p
