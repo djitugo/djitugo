@@ -94,7 +94,7 @@ export default function About() {
 
             <div className="relative z-10 h-full p-7 md:p-10 flex flex-col justify-between">
               <div className="font-mono text-[10px] uppercase tracking-[0.28em] opacity-70">
-                Djitugo HQ · Denpasar, Bali
+                Djitugo HQ · Bali
               </div>
               <blockquote className="font-display text-2xl md:text-3xl leading-[1.15] max-w-md">
                 &ldquo;We don&apos;t chase trends. We build brands that <em className="not-italic italic">earn attention</em> on the channels that matter.&rdquo;

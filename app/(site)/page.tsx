@@ -7,10 +7,12 @@ import Works from "@/components/Works";
 import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import TickerCTA from "@/components/TickerCTA";
+import HomeLoader from "@/components/HomeLoader";
 
 export default function Home() {
   return (
     <>
+      <HomeLoader />
       <Hero />
       <KPIStrip />
       <Marquee />

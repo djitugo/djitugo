@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const services = [
   { label: "All-in-One Digital Marketing", href: "/services#all-in-one" },
@@ -100,14 +101,24 @@ export default function Footer() {
 
         <div className="mt-24 pt-8 border-t hairline-light grid grid-cols-12 gap-4 text-[11px] font-mono uppercase tracking-[0.22em] opacity-70">
           <div className="col-span-12 md:col-span-4">
-            Studio · Jl. Bukit Sari Utara 88X, Denpasar, Bali
+            Studio · Bali
           </div>
           <div className="col-span-6 md:col-span-4 md:text-center tabular-nums">
-            Denpasar · {time} WITA
+            Bali · {time} WITA
           </div>
           <div className="col-span-6 md:col-span-4 md:text-right">
             © {new Date().getFullYear()} Djitugo — All rights reserved
           </div>
+        </div>
+
+        <div className="mt-6 pt-6 border-t hairline-light flex flex-wrap gap-x-8 gap-y-3 text-[11px] font-mono uppercase tracking-[0.22em] opacity-70">
+          <Link href="/privacy" className="underline-grow">
+            Privacy policy
+          </Link>
+          <Link href="/terms" className="underline-grow">
+            Terms of use
+          </Link>
+          <span className="opacity-50">Site by Djitugo Studio</span>
         </div>
       </div>
 

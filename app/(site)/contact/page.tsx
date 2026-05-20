@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact — Djitugo",
   description:
-    "Start a project with Djitugo. Reach the studio in Denpasar, Bali — via form, email or WhatsApp.",
+    "Start a project with Djitugo. Reach the studio in Bali — via form, email or WhatsApp.",
 };
 
 export default function ContactPage() {
@@ -130,7 +130,7 @@ export default function ContactPage() {
                 ( The studio )
               </p>
               <h2 className="text-headline font-display mt-4">
-                Denpasar, <em className="not-italic italic font-light">Bali.</em>
+                Made in <em className="not-italic italic font-light">Bali.</em>
               </h2>
             </div>
             <a

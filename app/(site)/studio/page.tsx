@@ -55,7 +55,7 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2018", text: "Djitugo founded in Denpasar by Gustu Adi and Komang Joni." },
+  { year: "2018", text: "Djitugo founded in Bali by Gustu Adi and Komang Joni." },
   { year: "2020", text: "First long-term retainer with a hospitality group during the rebound." },
   { year: "2022", text: "In-house photography arm launched as @djitugopictures." },
   { year: "2024", text: "Crossed 500 clients served. Opened a second studio space." },
@@ -98,7 +98,7 @@ export default function StudioPage() {
               Indonesia&apos;s MSMEs hold the world&apos;s 4th-largest consumer base in their hands. Most of them ship great products with marketing built on a phone, in a hurry, with no system behind it.
             </p>
             <p className="mt-6 text-[16px] leading-relaxed text-[color:var(--color-gray-4)]">
-              Our job is to be the marketing department they couldn&apos;t hire alone — strategy, design, ads, content, technology, all under one roof. The same studio that runs growth for a Denpasar dental clinic also runs campaigns for multi-property resort groups. Same craft, same care.
+              Our job is to be the marketing department they couldn&apos;t hire alone — strategy, design, ads, content, technology, all under one roof. The same studio that runs growth for a Bali dental clinic also runs campaigns for multi-property resort groups. Same craft, same care.
             </p>
             <p className="mt-6 italic font-display text-2xl md:text-3xl text-[color:var(--color-ink)] max-w-md leading-[1.15]">
               We don&apos;t chase trends. We build brands that earn attention on the channels that matter.
@@ -180,7 +180,7 @@ export default function StudioPage() {
               Thirty heads. <em className="not-italic italic font-light">One brief.</em>
             </h2>
             <p className="mt-8 text-[15px] leading-relaxed text-[color:var(--color-gray-4)] max-w-md">
-              Production, design, engineering, strategy, ads and operations — all under one roof in Denpasar. We don&apos;t subcontract the work that matters.
+              Production, design, engineering, strategy, ads and operations — all under one roof in Bali. We don&apos;t subcontract the work that matters.
             </p>
           </div>
           <ul className="col-span-12 md:col-span-7 md:col-start-6 divide-y hairline">
