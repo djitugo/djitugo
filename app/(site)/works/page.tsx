@@ -304,22 +304,12 @@ function FeatureArt({ hue }: { hue: number }) {
             <path key={i} d={`M0,${i * 17} Q400,${i * 17 - 80} 800,${i * 17}`} />
           ))}
         </g>
-        <text
-          x="6%"
-          y="86%"
-          fill="rgba(246,245,241,0.65)"
-          fontFamily="serif"
-          fontSize="84"
-          fontStyle="italic"
-        >
-          mesare resort.
-        </text>
+        <g fill="none" stroke="rgba(246,245,241,0.12)">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <circle key={i} cx="640" cy="250" r={30 + i * 30} />
+          ))}
+        </g>
       </svg>
-      <div className="absolute inset-0 p-6 md:p-8">
-        <span className="font-mono text-[10px] uppercase tracking-[0.28em] opacity-70">
-          Hospitality · {hue}° hue
-        </span>
-      </div>
     </div>
   );
 }

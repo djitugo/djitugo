@@ -87,9 +87,11 @@ export default function About() {
                   stroke="rgba(246,245,241,0.05)"
                 />
               ))}
-              <text x="6%" y="92%" fill="rgba(246,245,241,0.85)" fontFamily="serif" fontSize="72" fontStyle="italic">
-                est. 2018
-              </text>
+              <g fill="none" stroke="rgba(246,245,241,0.18)">
+                {Array.from({ length: 14 }).map((_, i) => (
+                  <circle key={i} cx="320" cy="400" r={20 + i * 16} />
+                ))}
+              </g>
             </svg>
 
             <div className="relative z-10 h-full p-7 md:p-10 flex flex-col justify-between">

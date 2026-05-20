@@ -258,14 +258,14 @@ function ServiceSection({ service: s, index }: { service: Service; index: number
 
           <div className="mt-12 flex flex-wrap items-center gap-5">
             <Link
-              href="/contact"
+              href={`/services/${s.slug}`}
               className={`group inline-flex items-center gap-3 rounded-full pl-6 pr-2 py-2 text-sm tracking-wide ${
                 dark
                   ? "bg-[color:var(--color-paper)] text-[color:var(--color-ink)]"
                   : "bg-[color:var(--color-ink)] text-[color:var(--color-paper)]"
               }`}
             >
-              Request a quote
+              Read the full case
               <span
                 className={`h-10 w-10 grid place-items-center rounded-full transition-transform group-hover:rotate-45 ${
                   dark
@@ -276,8 +276,8 @@ function ServiceSection({ service: s, index }: { service: Service; index: number
                 →
               </span>
             </Link>
-            <Link href="/works" className="text-sm underline-grow">
-              See examples in our works →
+            <Link href="/contact" className="text-sm underline-grow">
+              Or request a quote →
             </Link>
           </div>
         </div>
@@ -352,10 +352,9 @@ function ServiceArt({ num, dark }: { num: string; dark: boolean }) {
       )}
       {idx === 5 && (
         <g>
-          <circle cx="200" cy="270" r="120" fill={stroke.replace("0.18", "0.9")} />
-          <text x="200" y="285" textAnchor="middle" fontFamily="serif" fontSize="80" fill="#0a0a0a">
-            Dj
-          </text>
+          <circle cx="200" cy="270" r="120" fill={stroke.replace("0.18", "0.45")} />
+          <circle cx="200" cy="270" r="80" fill="#0a0a0a" />
+          <circle cx="200" cy="270" r="40" fill={stroke.replace("0.18", "0.9")} />
         </g>
       )}
       {idx === 6 &&

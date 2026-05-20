@@ -182,7 +182,6 @@ function ArtA() {
       {Array.from({ length: 18 }).map((_, i) => (
         <circle key={i} cx="200" cy="380" r={20 + i * 14} fill="none" stroke="rgba(246,245,241,0.07)" strokeWidth="1" />
       ))}
-      <text x="50%" y="78%" textAnchor="middle" fill="rgba(246,245,241,0.5)" fontFamily="serif" fontSize="48" fontStyle="italic">mesare.</text>
     </svg>
   );
 }
@@ -205,7 +204,6 @@ function ArtC() {
           <path key={i} d={`M0,${i * 18} Q400,${i * 18 - 60} 800,${i * 18}`} />
         ))}
       </g>
-      <text x="6%" y="84%" fill="rgba(246,245,241,0.55)" fontFamily="serif" fontSize="64" fontStyle="italic">chandra.</text>
     </svg>
   );
 }
@@ -232,8 +230,11 @@ function ArtE() {
         <rect x="48" y="80" width="220" height="2" />
         <rect x="48" y="120" width="280" height="2" />
         <rect x="48" y="160" width="180" height="2" />
+        <rect x="48" y="200" width="240" height="2" />
+        <rect x="48" y="240" width="160" height="2" />
+        <rect x="48" y="280" width="300" height="2" />
+        <rect x="48" y="320" width="200" height="2" />
       </g>
-      <text x="6%" y="76%" fill="rgba(246,245,241,0.7)" fontFamily="serif" fontSize="92" fontStyle="italic">smile.</text>
     </svg>
   );
 }
@@ -246,7 +247,6 @@ function ArtF() {
         <circle cx="280" cy="430" r="50" />
         <path d="M120,430 L200,300 L280,430 M200,300 L240,260" />
       </g>
-      <text x="50%" y="86%" textAnchor="middle" fill="rgba(246,245,241,0.5)" fontFamily="serif" fontSize="42" fontStyle="italic">scoot.</text>
     </svg>
   );
 }

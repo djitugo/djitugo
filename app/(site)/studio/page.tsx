@@ -141,17 +141,11 @@ export default function StudioPage() {
                         stroke="rgba(246,245,241,0.05)"
                       />
                     ))}
-                    <text
-                      x="50%"
-                      y="55%"
-                      textAnchor="middle"
-                      fill="rgba(246,245,241,0.5)"
-                      fontFamily="serif"
-                      fontSize="62"
-                      fontStyle="italic"
-                    >
-                      {f.name.split(" ")[0].toLowerCase()}.
-                    </text>
+                    <g fill="none" stroke="rgba(246,245,241,0.18)">
+                      {Array.from({ length: 12 }).map((_, i) => (
+                        <circle key={i} cx="200" cy="160" r={30 + i * 18} />
+                      ))}
+                    </g>
                   </svg>
                 </div>
                 <div>
