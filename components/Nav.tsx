@@ -103,18 +103,18 @@ export default function Nav() {
 function Logo() {
   return (
     <svg
-      width="34"
-      height="34"
-      viewBox="0 0 34 34"
-      fill="none"
+      width="36"
+      height="36"
+      viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
+      className="shrink-0"
       aria-hidden
     >
-      <rect width="34" height="34" rx="17" fill="currentColor" />
-      <path
-        d="M11 10h6.4c4.2 0 7.1 2.8 7.1 7s-2.9 7-7.1 7H11V10zm3.5 3v8h2.9c2.2 0 3.7-1.6 3.7-4s-1.5-4-3.7-4h-2.9z"
-        fill="var(--color-paper)"
-      />
+      <rect width="100" height="100" rx="18" fill="currentColor" />
+      <g fill="var(--color-paper)">
+        <path d="M19 22 L60 22 A28 28 0 0 1 60 78 L19 78 L19 65 L58 65 A15 15 0 0 0 58 35 L19 35 Z" />
+        <rect x="19" y="44" width="32" height="12" rx="0.5" />
+      </g>
     </svg>
   );
 }
