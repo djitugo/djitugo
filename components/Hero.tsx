@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 
 export default function Hero() {
@@ -66,7 +67,7 @@ export default function Hero() {
           <span>Trusted by 700+ brands</span>
         </div>
 
-        <h1 className="mt-10 md:mt-14">
+        <h1 className="mt-10 md:mt-14 max-w-[min(96vw,1280px)] relative z-10">
           <Line>Where creativity</Line>
           <Line>meets <em className="not-italic font-light italic">technology.</em></Line>
         </h1>
@@ -77,21 +78,21 @@ export default function Hero() {
           </p>
 
           <div className="col-span-12 md:col-span-4 md:col-start-7">
-            <a
-              href="#works"
+            <Link
+              href="/works"
               className="group inline-flex items-center gap-4 bg-[color:var(--color-ink)] text-[color:var(--color-paper)] rounded-full pl-6 pr-2 py-2 text-sm tracking-wide hover:translate-y-[-2px] transition-transform"
             >
               See selected works
               <span className="h-11 w-11 grid place-items-center rounded-full bg-[color:var(--color-paper)] text-[color:var(--color-ink)] transition-transform group-hover:rotate-45">
                 →
               </span>
-            </a>
-            <a
-              href="#services"
+            </Link>
+            <Link
+              href="/services"
               className="ml-4 text-sm underline-grow"
             >
               or explore services
-            </a>
+            </Link>
           </div>
 
           <div className="col-span-12 mt-4 hidden md:flex justify-end font-mono text-[11px] uppercase tracking-[0.28em] text-[color:var(--color-gray-4)]">
@@ -100,13 +101,33 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Decorative monochrome blob */}
+      {/* Decorative ring system — sits behind text, never obscures */}
       <div
         aria-hidden
-        className="hero-blob absolute right-[-10vw] top-[6vh] w-[55vw] h-[55vw] max-w-[720px] max-h-[720px] -z-0"
+        className="hero-blob absolute right-[-14vw] bottom-[-8vw] w-[44vw] h-[44vw] max-w-[640px] max-h-[640px] -z-10 pointer-events-none"
       >
-        <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(10,10,10,1)_0%,rgba(10,10,10,0.85)_35%,rgba(10,10,10,0)_70%)]" />
-        <div className="absolute inset-[6%] rounded-full mix-blend-multiply bg-[conic-gradient(from_210deg,rgba(0,0,0,0)_0deg,rgba(0,0,0,0.4)_180deg,rgba(0,0,0,0)_360deg)]" />
+        <svg viewBox="0 0 600 600" className="w-full h-full">
+          <defs>
+            <radialGradient id="hero-rg" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="rgba(10,10,10,0.18)" />
+              <stop offset="60%" stopColor="rgba(10,10,10,0.10)" />
+              <stop offset="100%" stopColor="rgba(10,10,10,0)" />
+            </radialGradient>
+          </defs>
+          <circle cx="300" cy="300" r="290" fill="url(#hero-rg)" />
+          {Array.from({ length: 22 }).map((_, i) => (
+            <circle
+              key={i}
+              cx="300"
+              cy="300"
+              r={30 + i * 12}
+              fill="none"
+              stroke="rgba(10,10,10,0.12)"
+              strokeWidth="0.5"
+            />
+          ))}
+          <circle cx="300" cy="300" r="6" fill="rgba(10,10,10,0.85)" />
+        </svg>
       </div>
 
       {/* Hairline grid */}

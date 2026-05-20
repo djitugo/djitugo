@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const items = [
   "Ready to scale?",
   "Let's talk →",
@@ -10,8 +12,8 @@ const items = [
 
 export default function TickerCTA() {
   return (
-    <a
-      href="#contact"
+    <Link
+      href="/contact"
       className="block py-6 border-y hairline overflow-hidden group bg-[color:var(--color-paper)] hover:bg-[color:var(--color-ink)] hover:text-[color:var(--color-paper)] transition-colors duration-500"
     >
       <div className="marquee-track flex gap-12 whitespace-nowrap">
@@ -25,6 +27,6 @@ export default function TickerCTA() {
           </span>
         ))}
       </div>
-    </a>
+    </Link>
   );
 }

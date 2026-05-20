@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 
 type Work = {
@@ -114,12 +115,12 @@ export default function Works() {
               Made in Bali. <em className="not-italic italic font-light">Felt everywhere.</em>
             </h2>
           </div>
-          <a
-            href="#contact"
+          <Link
+            href="/works"
             className="col-span-12 md:col-span-3 md:col-start-10 md:text-right text-sm underline-grow"
           >
             View the full archive →
-          </a>
+          </Link>
         </div>
 
         <div className="grid grid-cols-12 gap-3 md:gap-4 auto-rows-[minmax(220px,auto)]">

@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const links = [
-  { label: "Services", href: "#services" },
-  { label: "Works", href: "#works" },
-  { label: "Process", href: "#process" },
-  { label: "Studio", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/services" },
+  { label: "Works", href: "/works" },
+  { label: "Process", href: "/process" },
+  { label: "Studio", href: "/studio" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Nav() {
@@ -44,23 +44,23 @@ export default function Nav() {
 
         <nav className="hidden md:flex items-center gap-9">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="text-[13px] uppercase tracking-[0.18em] underline-grow"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a
-          href="#contact"
+        <Link
+          href="/contact"
           className="hidden md:inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.18em] bg-[color:var(--color-ink)] text-[color:var(--color-paper)] px-5 py-3 rounded-full hover:opacity-90 transition-opacity"
         >
           <span>Start a project</span>
           <ArrowUpRight />
-        </a>
+        </Link>
 
         <button
           aria-label="Toggle menu"
@@ -77,22 +77,22 @@ export default function Nav() {
         <div className="md:hidden border-t hairline bg-[color:var(--color-paper)]">
           <nav className="container-x py-6 flex flex-col gap-4">
             {links.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="font-display text-3xl"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               onClick={() => setOpen(false)}
               className="mt-4 inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.18em] bg-[color:var(--color-ink)] text-[color:var(--color-paper)] px-5 py-3 rounded-full w-fit"
             >
               Start a project <ArrowUpRight />
-            </a>
+            </Link>
           </nav>
         </div>
       )}

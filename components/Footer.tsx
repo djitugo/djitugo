@@ -3,15 +3,20 @@
 import { useEffect, useState } from "react";
 
 const services = [
-  "All-in-One Digital Marketing",
-  "Social Media Management",
-  "Ads Management",
-  "Web Development",
-  "Branding & Design",
-  "Commercial Photography",
+  { label: "All-in-One Digital Marketing", href: "/services#all-in-one" },
+  { label: "Social Media Management", href: "/services#social" },
+  { label: "Ads Management", href: "/services#ads" },
+  { label: "Web Development", href: "/services#web" },
+  { label: "Branding & Design", href: "/services#branding" },
+  { label: "Commercial Photography", href: "/services#photography" },
 ];
 
-const company = ["Studio", "Works", "Process", "Career", "Blog"];
+const company = [
+  { label: "Studio", href: "/studio" },
+  { label: "Works", href: "/works" },
+  { label: "Process", href: "/process" },
+  { label: "Contact", href: "/contact" },
+];
 const socials = [
   { label: "Instagram", href: "https://instagram.com/djitugo" },
   { label: "@djitugopictures", href: "https://instagram.com/djitugopictures" },
@@ -75,10 +80,18 @@ export default function Footer() {
           </div>
 
           <div className="col-span-6 md:col-span-3 lg:col-span-2">
-            <FootCol title="Services" items={services} />
+            <FootCol
+              title="Services"
+              items={services.map((s) => s.label)}
+              hrefs={services.map((s) => s.href)}
+            />
           </div>
           <div className="col-span-6 md:col-span-3 lg:col-span-1">
-            <FootCol title="Studio" items={company} />
+            <FootCol
+              title="Studio"
+              items={company.map((c) => c.label)}
+              hrefs={company.map((c) => c.href)}
+            />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-2">
             <FootCol title="Social" items={socials.map((s) => s.label)} hrefs={socials.map((s) => s.href)} />
