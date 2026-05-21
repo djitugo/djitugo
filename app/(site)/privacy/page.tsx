@@ -3,9 +3,11 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Djitugo",
+  title: "Privacy Policy",
   description:
     "How Djitugo collects, uses, and protects the personal data of visitors and clients.",
+  alternates: { canonical: "/privacy" },
+  robots: { index: true, follow: true },
 };
 
 const sections = [

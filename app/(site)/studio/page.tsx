@@ -4,9 +4,17 @@ import PageHero from "@/components/PageHero";
 import TickerCTA from "@/components/TickerCTA";
 
 export const metadata: Metadata = {
-  title: "Studio — Djitugo",
+  title: "Studio",
   description:
     "An independent digital studio built in Bali since 2018. Strategy, design, technology — one team, one outcome.",
+  alternates: { canonical: "/studio" },
+  openGraph: {
+    title: "Studio — Djitugo",
+    description:
+      "An independent digital studio in Bali since 2018. Strategy, design, technology — one team, one outcome.",
+    url: "/studio",
+    type: "website",
+  },
 };
 
 const founders = [

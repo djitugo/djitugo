@@ -4,9 +4,17 @@ import PageHero from "@/components/PageHero";
 import TickerCTA from "@/components/TickerCTA";
 
 export const metadata: Metadata = {
-  title: "Process — Djitugo",
+  title: "Process",
   description:
     "A studio process, run like a system. Four stages, 90-day cycles, predictable outcomes.",
+  alternates: { canonical: "/process" },
+  openGraph: {
+    title: "Process — Djitugo",
+    description:
+      "Listen, Shape, Ship, Scale. A four-stage 90-day cycle that gets brands compounding.",
+    url: "/process",
+    type: "website",
+  },
 };
 
 type Step = {

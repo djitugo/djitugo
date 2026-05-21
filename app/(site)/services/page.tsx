@@ -4,9 +4,17 @@ import PageHero from "@/components/PageHero";
 import TickerCTA from "@/components/TickerCTA";
 
 export const metadata: Metadata = {
-  title: "Services — Djitugo",
+  title: "Services",
   description:
     "Six end-to-end services from a Bali studio. Strategy, social, ads, web, branding and commercial photography — engineered to compound.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services — Djitugo",
+    description:
+      "Six end-to-end services from a Bali studio. Strategy, social, ads, web, branding and commercial photography.",
+    url: "/services",
+    type: "website",
+  },
 };
 
 type Service = {

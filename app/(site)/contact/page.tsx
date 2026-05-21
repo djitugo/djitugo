@@ -3,9 +3,17 @@ import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact — Djitugo",
+  title: "Contact",
   description:
     "Start a project with Djitugo. Reach the studio in Bali — via form, email or WhatsApp.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact — Djitugo",
+    description:
+      "Tell us about your project. Bali-based digital studio replying within one business day.",
+    url: "/contact",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageHero from "@/components/PageHero";
 import TickerCTA from "@/components/TickerCTA";
 import { getRelated, getService, services } from "@/lib/services";
+import { BRAND_NAME, absoluteUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -16,10 +17,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const s = getService(slug);
-  if (!s) return { title: "Service not found — Djitugo" };
+  if (!s) return { title: "Service not found" };
+  const title = s.title;
+  const description = s.body;
+  const url = absoluteUrl(`/services/${s.slug}`);
   return {
-    title: `${s.title} — Djitugo`,
-    description: s.body,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${title} — ${BRAND_NAME}`,
+      description,
+      url,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} — ${BRAND_NAME}`,
+      description,
+    },
   };
 }
 
@@ -33,9 +49,59 @@ export default async function ServiceDetailPage({
   if (!s) notFound();
 
   const related = getRelated(s.slug, 2);
+  const url = absoluteUrl(`/services/${s.slug}`);
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: s.title,
+    serviceType: s.title,
+    description: s.longBody,
+    url,
+    provider: { "@id": absoluteUrl("/#organization") },
+    areaServed: { "@type": "Country", name: "Indonesia" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${s.title} deliverables`,
+      itemListElement: s.deliverables.map((d) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: d },
+      })),
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: absoluteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: absoluteUrl("/services"),
+      },
+      { "@type": "ListItem", position: 3, name: s.title, item: url },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <PageHero
         eyebrow={`( Service ${s.num} / 06 )`}
         title={

@@ -3,9 +3,11 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — Djitugo",
+  title: "Terms of Use",
   description:
     "Terms governing your use of the Djitugo website and any services delivered by Djitugo.",
+  alternates: { canonical: "/terms" },
+  robots: { index: true, follow: true },
 };
 
 const sections = [

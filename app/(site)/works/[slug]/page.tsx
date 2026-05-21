@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageHero from "@/components/PageHero";
 import TickerCTA from "@/components/TickerCTA";
 import { getRelatedWorks, getWork, works } from "@/lib/works";
+import { BRAND_NAME, absoluteUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   return works.map((w) => ({ slug: w.slug }));
@@ -16,10 +17,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const w = getWork(slug);
-  if (!w) return { title: "Work not found — Djitugo" };
+  if (!w) return { title: "Work not found" };
+  const title = `${w.client} — case study`;
+  const description = w.result;
+  const url = absoluteUrl(`/works/${w.slug}`);
   return {
-    title: `${w.client} — Djitugo`,
-    description: w.result,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${w.client} — ${BRAND_NAME} case study`,
+      description,
+      url,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${w.client} — ${BRAND_NAME} case study`,
+      description,
+    },
   };
 }
 
@@ -33,9 +49,54 @@ export default async function WorkDetailPage({
   if (!w) notFound();
 
   const related = getRelatedWorks(w.slug, 3);
+  const url = absoluteUrl(`/works/${w.slug}`);
+
+  const caseSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "@id": `${url}#case`,
+    name: `${w.client} — case study`,
+    headline: w.result,
+    about: w.brief,
+    url,
+    inLanguage: "en-US",
+    datePublished: `${w.year}-01-01`,
+    creator: { "@id": absoluteUrl("/#organization") },
+    publisher: { "@id": absoluteUrl("/#organization") },
+    keywords: [w.industry, ...w.services].join(", "),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: absoluteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Works",
+        item: absoluteUrl("/works"),
+      },
+      { "@type": "ListItem", position: 3, name: w.client, item: url },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <PageHero
         eyebrow={`( Case · ${w.industry} · ${w.year} )`}
         title={
