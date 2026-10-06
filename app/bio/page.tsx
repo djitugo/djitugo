@@ -26,34 +26,35 @@ const links: BioLink[] = [
 ];
 
 const rowClass =
-  "bio-item group flex items-center gap-4 rounded-full border border-[color:var(--color-paper)]/15 bg-[color:var(--color-paper)]/[0.03] pl-2 pr-5 py-2 hover:bg-[color:var(--color-paper)] hover:text-[color:var(--color-ink)] transition-colors duration-300";
+  "bio-item group flex items-center gap-4 rounded-full border border-[color:var(--color-paper)]/15 bg-[color:var(--color-paper)]/[0.03] pl-2 pr-5 py-[clamp(4px,0.9dvh,8px)] hover:bg-[color:var(--color-paper)] hover:text-[color:var(--color-ink)] transition-colors duration-300";
 
 export default function BioPage() {
   return (
-    <main className="relative min-h-[100svh] overflow-hidden bg-[color:var(--color-ink)] text-[color:var(--color-paper)] grain">
-      <div className="relative z-10 mx-auto flex w-full max-w-md flex-col items-center px-5 pt-16 pb-12">
+    <main className="relative flex h-[100dvh] flex-col overflow-hidden bg-[color:var(--color-ink)] text-[color:var(--color-paper)] grain">
+      <div className="relative z-10 mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center px-5 pt-[3dvh]">
         <img
           src="/logo.png"
           alt="Djitugo"
           width="88"
           height="88"
-          className="bio-item rounded-[18px] border border-[color:var(--color-paper)]/15"
+          className="bio-item h-[clamp(48px,9dvh,88px)] w-[clamp(48px,9dvh,88px)] rounded-[18px] border border-[color:var(--color-paper)]/15"
           style={{ animationDelay: "0s" }}
         />
 
-        <h1 className="bio-item mt-6 font-display text-4xl tracking-tight" style={{ animationDelay: "0.06s" }}>Djitugo</h1>
-        <p style={{ animationDelay: "0.12s" }} className="bio-item mt-2 font-mono text-[11px] uppercase tracking-[0.28em] opacity-60">
+        <h1 className="bio-item mt-[clamp(10px,2.5dvh,24px)] font-display text-[clamp(1.75rem,4.5dvh,2.25rem)] tracking-tight" style={{ animationDelay: "0.06s" }}>Djitugo</h1>
+        <p style={{ animationDelay: "0.12s" }} className="bio-item mt-[clamp(4px,1dvh,8px)] font-mono text-[11px] uppercase tracking-[0.28em] opacity-60">
           Digital studio · Bali
         </p>
-        <p style={{ animationDelay: "0.18s" }} className="bio-item mt-5 max-w-xs text-center text-[14.5px] leading-relaxed opacity-80">
-          We turn ideas into visual &amp; digital impact. Brand visuals with purpose, digital presence that performs.
+        <p style={{ animationDelay: "0.18s" }} className="bio-item mt-[clamp(8px,2dvh,20px)] max-w-xs text-center text-[14.5px] leading-relaxed opacity-80 [@media(max-height:520px)]:hidden">
+          We turn ideas into visual &amp; digital impact.
+          <span className="[@media(max-height:740px)]:hidden"> Brand visuals with purpose, digital presence that performs.</span>
         </p>
 
-        <ul className="mt-10 w-full space-y-3">
+        <ul className="mt-[clamp(14px,4dvh,40px)] w-full space-y-[clamp(6px,1.2dvh,12px)]">
           {links.map((l, i) => {
             const inner = (
               <>
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[color:var(--color-paper)]/10 transition-colors group-hover:bg-[color:var(--color-ink)]/10">
+                <span className="grid h-[clamp(34px,5.5dvh,44px)] w-[clamp(34px,5.5dvh,44px)] shrink-0 place-items-center rounded-full bg-[color:var(--color-paper)]/10 transition-colors group-hover:bg-[color:var(--color-ink)]/10">
                   {l.icon}
                 </span>
                 <span className="flex-1">
@@ -81,10 +82,11 @@ export default function BioPage() {
           })}
         </ul>
 
-        <p style={{ animationDelay: "0.6s" }} className="bio-item mt-14 font-mono text-[10px] uppercase tracking-[0.28em] opacity-40">
-          © {new Date().getFullYear()} Djitugo · Bali
-        </p>
       </div>
+
+      <p style={{ animationDelay: "0.6s" }} className="bio-item relative z-10 shrink-0 py-[clamp(12px,3dvh,28px)] text-center font-mono text-[10px] uppercase tracking-[0.28em] opacity-40">
+        © {new Date().getFullYear()} Djitugo · Bali
+      </p>
 
       {/* Ring system, bottom right — same motif as the hero */}
       <svg
@@ -98,6 +100,7 @@ export default function BioPage() {
       </svg>
 
       <style>{`
+        html, body { height: 100%; overflow: hidden; overscroll-behavior: none; background: #0a0a0a; }
         .bio-item { animation: bio-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
         @keyframes bio-in {
           from { opacity: 0; transform: translateY(12px); }
