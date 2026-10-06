@@ -29,6 +29,7 @@ export const BRAND_CONTACT = {
   instagram: "https://instagram.com/djitugo",
   facebook: "https://facebook.com/djitugo.official",
   linkedin: "https://linkedin.com/company/djitugo",
+  behance: "https://www.behance.net/djitugoagency",
   street: "Jln Bukit Sari Utara No.88X",
   area: "Padangsambian Kaja, Denpasar Barat",
   region: "Bali",

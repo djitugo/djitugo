@@ -16,6 +16,7 @@ const staticRoutes: {
   { path: "/process", changeFrequency: "monthly", priority: 0.7 },
   { path: "/studio", changeFrequency: "monthly", priority: 0.7 },
   { path: "/contact", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/bio", changeFrequency: "monthly", priority: 0.5 },
   { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
   { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
 ];

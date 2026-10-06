@@ -125,6 +125,7 @@ const organizationSchema = {
     BRAND_CONTACT.instagram,
     BRAND_CONTACT.facebook,
     BRAND_CONTACT.linkedin,
+    BRAND_CONTACT.behance,
   ],
 };
 
